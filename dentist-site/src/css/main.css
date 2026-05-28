@@ -1,0 +1,394 @@
+/* ============================================
+   MAIN.CSS — Стили сайта
+   Использует CSS-переменные из themes.css
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── ТИПОГРАФИКА ── */
+h1 { font-size: clamp(2.4rem, 8vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 600; line-height: 1.2; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p  { font-size: 1rem; color: var(--color-text-muted); }
+
+/* ── КНОПКИ ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-btn-primary);
+  color: var(--color-btn-primary-text);
+  border-color: var(--color-btn-primary);
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-outline {
+  background: var(--color-btn-outline);
+  color: var(--color-btn-outline-text);
+  border-color: var(--color-btn-outline-border);
+}
+.btn-outline:hover {
+  background: var(--color-btn-primary);
+  color: var(--color-btn-primary-text);
+  transform: translateY(-1px);
+}
+
+.btn-light {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.btn-light:hover { background: rgba(255,255,255,0.25); }
+
+/* ── КОНТЕЙНЕР ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── СЕКЦИИ ── */
+section { padding: 64px 0; }
+
+/* ══════════════════════════════════════
+   ЭКРАН 1 — ОБЛОЖКА
+   ══════════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0 64px;
+  background: var(--color-bg);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.hero-name {
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.hero-name span { color: var(--color-accent); }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.hero-meta {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+}
+
+.hero-photo {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  background: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-photo-placeholder {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 3/4;
+  border-radius: 20px;
+  background: var(--color-accent-light);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ══════════════════════════════════════
+   ЭКРАН 2 — ТРИГГЕРНЫЕ СИТУАЦИИ
+   ══════════════════════════════════════ */
+.triggers {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 64px 0;
+}
+
+.triggers h2 { color: var(--color-text-light); margin-bottom: 8px; }
+.triggers .section-sub { color: rgba(255,255,255,0.55); margin-bottom: 40px; }
+
+.triggers-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.trigger-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.trigger-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateX(4px);
+}
+
+.trigger-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trigger-icon svg { width: 20px; height: 20px; stroke: rgba(255,255,255,0.8); fill: none; stroke-width: 1.5; }
+
+.trigger-content h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.trigger-content p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+.trigger-arrow {
+  margin-left: auto;
+  padding-left: 12px;
+  color: rgba(255,255,255,0.3);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ══════════════════════════════════════
+   ЭКРАН 3 — РЕКОМЕНДАЦИИ ПОСЛЕ ЛЕЧЕНИЯ
+   ══════════════════════════════════════ */
+.recommendations {
+  background: var(--color-bg);
+  padding: 64px 0;
+}
+
+.recommendations h2 { margin-bottom: 8px; }
+.recommendations .section-sub { margin-bottom: 32px; }
+
+.rec-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.rec-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rec-card-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rec-card-icon svg { width: 18px; height: 18px; stroke: var(--color-accent); fill: none; stroke-width: 1.5; }
+
+.rec-card h3 { font-size: 0.9rem; color: var(--color-text); }
+.rec-card p  { font-size: 0.8rem; color: var(--color-text-muted); }
+
+/* ══════════════════════════════════════
+   ЭКРАН 4 — ОТЗЫВЫ
+   ══════════════════════════════════════ */
+.reviews {
+  background: var(--color-accent-light);
+  padding: 64px 0;
+}
+
+.reviews h2 { margin-bottom: 8px; }
+.reviews .section-sub { margin-bottom: 40px; }
+
+.reviews-list {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.review-card {
+  background: var(--color-bg-card);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.review-name { font-weight: 600; font-size: 0.95rem; }
+.review-tag  { font-size: 0.75rem; color: var(--color-text-muted); }
+
+.review-text {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   ЭКРАН 5 — CTA TELEGRAM
+   ══════════════════════════════════════ */
+.cta {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta h2 { color: #fff; margin-bottom: 12px; }
+.cta p  { color: rgba(255,255,255,0.6); margin-bottom: 32px; font-size: 1.05rem; }
+
+.cta-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.cta-feature {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ══════════════════════════════════════
+   ЭКРАН 6 — ФУТЕР
+   ══════════════════════════════════════ */
+footer {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 40px 0;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.footer-info a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-info a:hover { color: var(--color-primary); }
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ── УТИЛИТЫ ── */
+.section-sub {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* ── АДАПТИВ ── */
+@media (max-width: 480px) {
+  section { padding: 48px 0; }
+  .rec-cards { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn { justify-content: center; }
+  .cta-features { flex-direction: column; align-items: center; }
+}
