@@ -1,0 +1,74 @@
+/* ============================================
+   THEMES.CSS — Цветовые темы (ПЕРЕМЕННАЯ)
+   Структура сайта — константа, цвет — нет.
+   Меняй тему под каждого врача.
+   ============================================ */
+
+/* ТЕМА 1: Тёмно-зелёная (default — Артур Компанец) */
+:root {
+  --color-primary:      #1C3A2F;
+  --color-accent:       #2D6A4F;
+  --color-accent-light: #E8F0EC;
+  --color-bg:           #F5F0E8;
+  --color-bg-card:      #FFFFFF;
+  --color-bg-dark:      #1C3A2F;
+  --color-text:         #1A1A1A;
+  --color-text-muted:   #6B6B6B;
+  --color-text-light:   #FFFFFF;
+  --color-border:       #E0D9CF;
+  --color-btn-primary:      #1C3A2F;
+  --color-btn-primary-text: #FFFFFF;
+  --color-btn-outline:      transparent;
+  --color-btn-outline-border: #1C3A2F;
+  --color-btn-outline-text:   #1C3A2F;
+  --color-tag-bg:       #E8F0EC;
+  --color-tag-text:     #1C3A2F;
+}
+
+/* ТЕМА 2: Тёмно-синяя */
+/* Раскомментируй чтобы применить */
+/*
+:root {
+  --color-primary:      #1E2A3A;
+  --color-accent:       #2E5F8A;
+  --color-accent-light: #E8EFF6;
+  --color-bg:           #F4F6F8;
+  --color-bg-card:      #FFFFFF;
+  --color-bg-dark:      #1E2A3A;
+  --color-text:         #1A1A1A;
+  --color-text-muted:   #6B6B6B;
+  --color-text-light:   #FFFFFF;
+  --color-border:       #D8E0E8;
+  --color-btn-primary:      #1E2A3A;
+  --color-btn-primary-text: #FFFFFF;
+  --color-btn-outline:      transparent;
+  --color-btn-outline-border: #1E2A3A;
+  --color-btn-outline-text:   #1E2A3A;
+  --color-tag-bg:       #E8EFF6;
+  --color-tag-text:     #1E2A3A;
+}
+*/
+
+/* ТЕМА 3: Тёплая бежево-коричневая */
+/* Раскомментируй чтобы применить */
+/*
+:root {
+  --color-primary:      #3D2B1F;
+  --color-accent:       #8B5E3C;
+  --color-accent-light: #F5EDE5;
+  --color-bg:           #FAF6F0;
+  --color-bg-card:      #FFFFFF;
+  --color-bg-dark:      #3D2B1F;
+  --color-text:         #1A1A1A;
+  --color-text-muted:   #6B6B6B;
+  --color-text-light:   #FFFFFF;
+  --color-border:       #E8DDD4;
+  --color-btn-primary:      #3D2B1F;
+  --color-btn-primary-text: #FFFFFF;
+  --color-btn-outline:      transparent;
+  --color-btn-outline-border: #3D2B1F;
+  --color-btn-outline-text:   #3D2B1F;
+  --color-tag-bg:       #F5EDE5;
+  --color-tag-text:     #3D2B1F;
+}
+*/
