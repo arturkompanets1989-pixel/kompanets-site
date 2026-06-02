@@ -1,0 +1,370 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#111;
+  --ink2:#444;
+  --ink3:#888;
+  --bg:#f7f5f0;
+  --white:#fff;
+  --green:#1a5c4a;
+  --green2:#22755f;
+  --gold:#b8965a;
+  --border:#e2ddd5;
+  --red:#c0392b;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(247,245,240,0.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 40px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--ink);text-decoration:none;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{
+  font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink2);text-decoration:none;padding:8px 16px;
+  border-radius:4px;transition:all .2s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--green);background:rgba(26,92,74,.06);}
+.nav-cta{
+  font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:10px 24px;background:var(--green);color:#fff;
+  text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .2s;
+}
+.nav-cta:hover{background:var(--green2);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding-top:64px;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:72px 56px 72px 80px;
+  background:var(--bg);
+}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);margin-bottom:24px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+.hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,7vw,96px);
+  line-height:.95;letter-spacing:.02em;
+  color:var(--ink);margin-bottom:8px;
+}
+.hero-h1 .name-line{color:var(--green);}
+.hero-role{
+  font-size:15px;font-weight:400;color:var(--ink2);
+  margin-bottom:6px;letter-spacing:.02em;
+}
+.hero-role b{font-weight:600;color:var(--ink);}
+.hero-exp{
+  font-size:13px;color:var(--ink3);margin-bottom:40px;letter-spacing:.04em;
+}
+
+/* PAIN PILLS */
+.pain-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.pill{
+  font-size:12px;font-weight:500;padding:7px 14px;
+  border:1px solid var(--border);border-radius:100px;
+  color:var(--ink2);background:var(--white);
+  transition:all .2s;cursor:default;
+}
+.pill:hover{border-color:var(--green);color:var(--green);}
+.pill.red{border-color:#f0d0ce;color:var(--red);background:#fff8f8;}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-g{
+  font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:15px 32px;background:var(--green);color:#fff;
+  text-decoration:none;border-radius:4px;transition:background .2s;
+}
+.btn-g:hover{background:var(--green2);}
+.btn-out{
+  font-size:13px;font-weight:500;letter-spacing:.04em;
+  padding:15px 28px;border:1px solid var(--border);color:var(--ink2);
+  text-decoration:none;border-radius:4px;transition:all .2s;background:transparent;
+}
+.btn-out:hover{border-color:var(--green);color:var(--green);}
+
+.hero-stats{
+  display:flex;gap:32px;margin-top:52px;
+  padding-top:40px;border-top:1px solid var(--border);
+}
+.stat{}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--ink);letter-spacing:.02em;}
+.stat-l{font-size:11px;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-top:2px;}
+
+/* HERO PHOTO */
+.hero-right{
+  position:relative;overflow:hidden;
+  background:var(--white);
+}
+.hero-right img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 8%;
+  display:block;
+}
+.photo-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--green);color:#fff;
+  padding:14px 28px;
+  font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  text-align:center;
+}
+
+/* ── SECTION COMMONS ── */
+section{scroll-margin-top:64px;}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+.s-label{
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.s-label::after{content:'';flex:1;max-width:40px;height:1px;background:var(--green);}
+.s-h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,4vw,54px);
+  letter-spacing:.03em;line-height:1;
+  color:var(--ink);margin-bottom:48px;
+}
+.s-h2 em{font-style:normal;color:var(--green);}
+
+/* ── БОЛИ ── */
+.pains-section{padding:96px 0;background:var(--ink);}
+.pains-section .s-label{color:var(--gold);}
+.pains-section .s-label::after{background:var(--gold);}
+.pains-section .s-h2{color:#fff;margin-bottom:52px;}
+.pains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);}
+.pain-card{
+  background:var(--ink);padding:40px 32px;
+  transition:background .25s;
+}
+.pain-card:hover{background:#1a1a1a;}
+.pain-ico{
+  width:44px;height:44px;border-radius:8px;
+  background:rgba(26,92,74,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:20px;
+}
+.pain-card h3{
+  font-size:18px;font-weight:600;color:#fff;
+  margin-bottom:12px;line-height:1.3;
+}
+.pain-card p{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.8;}
+.pain-card .pain-tag{
+  display:inline-block;margin-top:18px;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ── ОБО МНЕ ── */
+.about-section{padding:96px 0;background:var(--white);}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.about-text p{font-size:15px;font-weight:300;color:var(--ink2);line-height:1.9;margin-bottom:18px;}
+.about-text p b{font-weight:600;color:var(--ink);}
+.about-list{margin-top:8px;display:flex;flex-direction:column;gap:12px;}
+.al{display:flex;gap:12px;font-size:14px;color:var(--ink2);line-height:1.6;}
+.al-dot{flex-shrink:0;width:5px;height:5px;border-radius:50%;background:var(--green);margin-top:9px;}
+.specs{display:flex;flex-direction:column;gap:12px;}
+.spec-card{
+  padding:20px 24px;border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:center;gap:16px;background:var(--bg);
+  transition:border-color .2s;
+}
+.spec-card:hover{border-color:var(--green);}
+.spec-ico{font-size:22px;}
+.spec-title{font-size:15px;font-weight:600;color:var(--ink);}
+.spec-sub{font-size:12px;color:var(--ink3);margin-top:2px;}
+.spec-card.hl{background:var(--green);border-color:var(--green);}
+.spec-card.hl .spec-title{color:#fff;}
+.spec-card.hl .spec-sub{color:rgba(255,255,255,.7);}
+
+/* ── ОНЛАЙН КТ ── */
+.kt-section{padding:96px 0;background:var(--bg);}
+.kt-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.kt-steps{display:flex;flex-direction:column;gap:0;}
+.kt-step{
+  display:flex;gap:20px;padding:28px 0;
+  border-bottom:1px solid var(--border);
+}
+.kt-step:last-child{border-bottom:none;}
+.kt-num{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:var(--green);color:#fff;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;
+  display:flex;align-items:center;justify-content:center;letter-spacing:.04em;
+}
+.kt-step h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.kt-step p{font-size:13px;font-weight:300;color:var(--ink2);line-height:1.7;}
+.kt-step a{color:var(--green);text-decoration:none;font-weight:500;}
+.kt-promo{
+  background:var(--ink);border-radius:12px;padding:48px 40px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.kt-promo h3{
+  font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:.03em;
+  color:#fff;line-height:1.05;
+}
+.kt-promo h3 span{color:var(--gold);}
+.kt-promo p{font-size:14px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.8;}
+.kt-promo-price{
+  font-size:13px;color:rgba(255,255,255,.4);
+  padding-top:16px;border-top:1px solid rgba(255,255,255,.1);
+}
+.kt-promo-price b{color:#fff;font-weight:600;}
+.btn-gold{
+  font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:15px 32px;background:var(--gold);color:#fff;
+  text-decoration:none;border-radius:4px;transition:opacity .2s;
+  display:inline-block;
+}
+.btn-gold:hover{opacity:.88;}
+
+/* ── СТАТЬИ ── */
+.articles-section{padding:96px 0;background:var(--white);}
+.articles-alert{
+  background:#fff8f3;border:1px solid #f0d8c0;border-radius:8px;
+  padding:20px 28px;margin-bottom:48px;
+  display:flex;align-items:center;gap:16px;
+  font-size:14px;color:#7a4a20;font-weight:400;line-height:1.6;
+}
+.articles-alert b{font-weight:600;}
+.alert-ico{font-size:24px;flex-shrink:0;}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.art-card{
+  background:var(--bg);border:1px solid var(--border);border-radius:8px;
+  padding:32px 28px;display:flex;flex-direction:column;
+  transition:all .25s;cursor:pointer;
+}
+.art-card:hover{border-color:var(--green);background:var(--white);transform:translateY(-3px);}
+.art-badge{
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);margin-bottom:14px;
+}
+.art-title{
+  font-size:17px;font-weight:600;color:var(--ink);
+  line-height:1.35;margin-bottom:12px;
+}
+.art-preview{
+  font-size:13px;font-weight:300;color:var(--ink3);
+  line-height:1.8;flex:1;
+  position:relative;overflow:hidden;max-height:90px;
+}
+.art-preview::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40px;
+  background:linear-gradient(to bottom,transparent,var(--bg));
+}
+.art-card:hover .art-preview::after{background:linear-gradient(to bottom,transparent,var(--white));}
+.art-cta{
+  margin-top:20px;padding-top:16px;border-top:1px solid var(--border);
+  font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--green);display:flex;align-items:center;gap:6px;text-decoration:none;
+}
+.art-cta svg{transition:transform .2s;}
+.art-card:hover .art-cta svg{transform:translateX(4px);}
+.articles-note{
+  margin-top:40px;text-align:center;
+  font-size:14px;color:var(--ink3);font-weight:300;
+}
+.articles-note b{font-weight:600;color:var(--ink);}
+
+/* ── УСЛУГИ ── */
+.services-section{padding:96px 0;background:var(--bg);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.srv{
+  background:var(--bg);padding:36px 28px;
+  border-left:3px solid transparent;
+  transition:all .2s;
+}
+.srv:hover{background:var(--white);border-left-color:var(--green);}
+.srv-n{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--ink3);margin-bottom:12px;letter-spacing:.06em;}
+.srv-title{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3;}
+.srv-desc{font-size:13px;font-weight:300;color:var(--ink2);line-height:1.8;}
+.srv-tag{
+  display:inline-block;margin-top:14px;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green);border-bottom:1px solid var(--green);padding-bottom:1px;
+}
+
+/* ── МЕСТА ── */
+.places-section{padding:96px 0;background:var(--ink);}
+.places-section .s-label{color:var(--gold);}
+.places-section .s-label::after{background:var(--gold);}
+.places-section .s-h2{color:#fff;}
+.place-card{
+  display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:center;
+  padding:36px 0;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.place-n{font-family:'Bebas Neue',sans-serif;font-size:56px;color:rgba(255,255,255,.08);line-height:1;}
+.place-name{font-size:20px;font-weight:600;color:#fff;margin-bottom:6px;}
+.place-addr{font-size:14px;color:rgba(255,255,255,.45);font-weight:300;}
+.place-phone{font-size:16px;color:var(--gold);text-decoration:none;font-weight:500;}
+.place-phone:hover{text-decoration:underline;}
+
+/* ── ОТЗЫВЫ ── */
+.reviews-section{padding:96px 0;background:var(--white);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.rev{background:var(--bg);border-radius:8px;padding:32px 28px;}
+.rev-stars{color:var(--gold);font-size:14px;letter-spacing:3px;margin-bottom:14px;}
+.rev-text{font-size:14px;font-weight:300;color:var(--ink2);line-height:1.9;margin-bottom:18px;font-style:italic;}
+.rev-name{font-size:13px;font-weight:600;color:var(--ink);}
+.rev-info{font-size:12px;color:var(--ink3);margin-top:3px;}
+
+/* ── TG CTA ── */
+.tg-section{
+  padding:120px 0;
+  background:var(--green);color:#fff;text-align:center;
+}
+.tg-section .s-h2{color:#fff;margin-bottom:16px;}
+.tg-sub{font-size:16px;font-weight:300;opacity:.8;margin-bottom:48px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;}
+.tg-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#fff;color:var(--green);
+  padding:18px 44px;font-size:13px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border-radius:4px;transition:opacity .2s;
+}
+.tg-btn:hover{opacity:.9;}
+
+/* ── FOOTER ── */
+footer{
+  background:#0a0a0a;color:rgba(255,255,255,.35);
+  padding:40px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:16px;
+}
+.f-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.06em;color:rgba(255,255,255,.7);}
+footer a{color:rgba(255,255,255,.35);text-decoration:none;font-size:13px;transition:color .2s;}
+footer a:hover{color:#fff;}
+
+/* ── ANIMATIONS ── */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+.fu.vis{opacity:1;transform:translateY(0);}
+
+/* ── MOBILE ── */
+@media(max-width:860px){
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .burger{display:flex;}
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:48px 24px 40px;}
+  .hero-right{height:420px;order:-1;}
+  .pains-grid,.about-inner,.kt-inner,.services-grid,.articles-grid,.reviews-grid{grid-template-columns:1fr;}
+  .wrap{padding:0 20px;}
+  .hero-stats{flex-wrap:wrap;gap:20px;}
+  .place-card{grid-template-columns:1fr;gap:8px;}
+  .place-n{font-size:32px;}
+  footer{flex-direction:column;align-items:flex-start;padding:32px 20px;}
+}
