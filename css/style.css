@@ -30,7 +30,7 @@ nav{
 .nav-links a{
   font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
   color:var(--ink2);text-decoration:none;padding:8px 16px;
-  border-radius:4px;transition:all .2s;white-space:nowrap;
+  border-radius:4px;transition:color .2s ease, background .2s ease;white-space:nowrap;
 }
 .nav-links a:hover{color:var(--green);background:rgba(26,92,74,.06);}
 .nav-cta{
@@ -80,7 +80,7 @@ nav{
   font-size:12px;font-weight:500;padding:7px 14px;
   border:1px solid var(--border);border-radius:100px;
   color:var(--ink2);background:var(--white);
-  transition:all .2s;cursor:default;
+  transition:border-color .2s ease, color .2s ease;cursor:default;
 }
 .pill:hover{border-color:var(--green);color:var(--green);}
 .pill.red{border-color:#f0d0ce;color:var(--red);background:#fff8f8;}
@@ -95,7 +95,7 @@ nav{
 .btn-out{
   font-size:13px;font-weight:500;letter-spacing:.04em;
   padding:15px 28px;border:1px solid var(--border);color:var(--ink2);
-  text-decoration:none;border-radius:4px;transition:all .2s;background:transparent;
+  text-decoration:none;border-radius:4px;transition:border-color .2s ease, color .2s ease;background:transparent;
 }
 .btn-out:hover{border-color:var(--green);color:var(--green);}
 
@@ -150,7 +150,7 @@ section{scroll-margin-top:64px;}
 .pains-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);}
 .pain-card{
   background:var(--ink);padding:40px 32px;
-  transition:background .25s;
+  transition:background .2s ease;
 }
 .pain-card:hover{background:#1a1a1a;}
 .pain-ico{
@@ -247,9 +247,9 @@ section{scroll-margin-top:64px;}
 .art-card{
   background:var(--bg);border:1px solid var(--border);border-radius:8px;
   padding:32px 28px;display:flex;flex-direction:column;
-  transition:all .25s;cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, box-shadow .2s ease;cursor:pointer;
 }
-.art-card:hover{border-color:var(--green);background:var(--white);transform:translateY(-3px);}
+.art-card:hover{border-color:var(--green);background:var(--white);box-shadow:0 4px 16px rgba(0,0,0,.07);}
 .art-badge{
   font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--red);margin-bottom:14px;
@@ -287,7 +287,7 @@ section{scroll-margin-top:64px;}
 .srv{
   background:var(--bg);padding:36px 28px;
   border-left:3px solid transparent;
-  transition:all .2s;
+  transition:background .2s ease, border-left-color .2s ease;
 }
 .srv:hover{background:var(--white);border-left-color:var(--green);}
 .srv-n{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--ink3);margin-bottom:12px;letter-spacing:.06em;}
@@ -349,9 +349,23 @@ footer{
 footer a{color:rgba(255,255,255,.35);text-decoration:none;font-size:13px;transition:color .2s;}
 footer a:hover{color:#fff;}
 
-/* ── ANIMATIONS ── */
-.fu{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
-.fu.vis{opacity:1;transform:translateY(0);}
+/* ── ANIMATIONS ──
+   Контент виден ВСЕГДА по умолчанию.
+   Класс .js браузер добавляет через скрипт — только тогда
+   элементы скрываются и плавно появляются при прокрутке.
+   Без JS (или при медленной загрузке) сайт выглядит нормально.
+*/
+.js .fu{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.js .fu.vis{opacity:1;transform:translateY(0);}
+
+/* Пользователь включил «уменьшить движение» в ОС → убираем сдвиг */
+@media(prefers-reduced-motion:reduce){
+  .js .fu{transform:none;transition:opacity .3s ease;}
+}
 
 /* ── MOBILE ── */
 @media(max-width:860px){
