@@ -362,23 +362,85 @@ footer a:hover{color:#fff;}
 }
 .js .fu.vis{opacity:1;transform:translateY(0);}
 
-/* Пользователь включил «уменьшить движение» в ОС → убираем сдвиг */
-@media(prefers-reduced-motion:reduce){
-  .js .fu{transform:none;transition:opacity .3s ease;}
-}
-
-/* ── MOBILE ── */
+/* ── MOBILE base (≤860px) ── */
 @media(max-width:860px){
-  .nav-links{display:none;}
-  .nav-cta{display:none;}
+  /* Навигация */
+  .nav-inner{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
   .burger{display:flex;}
+
+  /* Открытое мобильное меню */
+  nav.open .nav-links{
+    display:flex;flex-direction:column;
+    position:absolute;top:64px;left:0;right:0;
+    background:rgba(247,245,240,.97);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+    padding:8px 0 20px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    animation:menuDown .2s ease;
+  }
+  nav.open .nav-links a{
+    display:flex;align-items:center;
+    padding:14px 24px;font-size:14px;
+    border-radius:0;min-height:44px;
+  }
+
+  @keyframes menuDown{
+    from{opacity:0;transform:translateY(-6px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  /* Бургер → крестик */
+  .burger span{transition:transform .22s ease,opacity .22s ease;}
+  nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  nav.open .burger span:nth-child(2){opacity:0;transform:scaleX(0);}
+  nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* Герой */
   .hero{grid-template-columns:1fr;}
-  .hero-left{padding:48px 24px 40px;}
-  .hero-right{height:420px;order:-1;}
-  .pains-grid,.about-inner,.kt-inner,.services-grid,.articles-grid,.reviews-grid{grid-template-columns:1fr;}
+  .hero-left{padding:48px 20px 40px;}
+  .hero-right{height:280px;order:-1;}
+
+  /* Секции — меньше воздуха */
+  :is(.pains-section,.about-section,.kt-section,.articles-section,
+      .services-section,.places-section,.reviews-section){padding:64px 0;}
+  .tg-section{padding:80px 0;}
   .wrap{padding:0 20px;}
-  .hero-stats{flex-wrap:wrap;gap:20px;}
+
+  /* Сетки → 1 колонка */
+  .pains-grid,.about-inner,.kt-inner,.services-grid,.articles-grid,.reviews-grid{grid-template-columns:1fr;}
+
+  /* Компактные карточки */
+  .pain-card{padding:28px 20px;}
+  .kt-promo{padding:32px 24px;}
+  .art-card{padding:24px 20px;}
+
+  /* Прочее */
+  .hero-stats{flex-wrap:wrap;gap:16px;}
   .place-card{grid-template-columns:1fr;gap:8px;}
   .place-n{font-size:32px;}
   footer{flex-direction:column;align-items:flex-start;padding:32px 20px;}
+}
+
+/* ── TABLET (600–860px): 2 колонки для карточных сеток ── */
+@media(min-width:600px) and (max-width:860px){
+  .pains-grid,.articles-grid,.services-grid,.reviews-grid{grid-template-columns:repeat(2,1fr);}
+  .about-inner,.kt-inner{grid-template-columns:1fr 1fr;gap:40px;}
+}
+
+/* ── NARROW PHONE (≤480px): финальная подгонка ── */
+@media(max-width:480px){
+  .hero-h1{font-size:clamp(44px,12vw,64px);}
+  .hero-right{height:240px;}
+  .s-h2{font-size:clamp(28px,8vw,40px);}
+  .stat-n{font-size:32px;}
+  .kt-promo h3{font-size:32px;}
+  .hero-actions{flex-direction:column;}
+  .btn-g,.btn-out{text-align:center;width:100%;box-sizing:border-box;}
+}
+
+/* Уменьшить движение в ОС */
+@media(prefers-reduced-motion:reduce){
+  .js .fu{transform:none;transition:opacity .3s ease;}
+  nav.open .nav-links{animation:none;}
 }
