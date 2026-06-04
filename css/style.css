@@ -399,7 +399,7 @@ footer a:hover{color:#fff;}
   /* Герой */
   .hero{grid-template-columns:1fr;}
   .hero-left{padding:48px 20px 40px;}
-  .hero-right{height:280px;order:-1;}
+  .hero-right{height:340px;order:-1;}
 
   /* Секции — меньше воздуха */
   :is(.pains-section,.about-section,.kt-section,.articles-section,
@@ -431,7 +431,7 @@ footer a:hover{color:#fff;}
 /* ── NARROW PHONE (≤480px): финальная подгонка ── */
 @media(max-width:480px){
   .hero-h1{font-size:clamp(44px,12vw,64px);}
-  .hero-right{height:240px;}
+  .hero-right{height:320px;}
   .s-h2{font-size:clamp(28px,8vw,40px);}
   .stat-n{font-size:32px;}
   .kt-promo h3{font-size:32px;}
